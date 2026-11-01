@@ -9,7 +9,7 @@ RUN mvn -q -B -DskipTests package
 # ---------- 2) runtime: Python (Flask ML) + Java (Spring Boot) ----------
 FROM python:3.11-slim
 RUN apt-get update \
- && apt-get install -y --no-install-recommends openjdk-17-jre-headless curl \
+ && apt-get install -y --no-install-recommends openjdk-21-jre-headless curl \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
