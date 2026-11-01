@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • SmartCrop</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:700">SmartCrop</div>
+          <div style="font-size:12px;color:var(--muted)">Optimize your farm yield</div>
+        </div>
+      </div>
+      <nav class="desktop-nav">
+        <a href="Home.html" class="nav-link">Home</a>
+        <a href="crop.html" class="nav-link">Crop Recommendation</a>
+        <a href="fertilizer.html" class="nav-link">Fertilizer Guide</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <button class="btn-login" onclick="openLogin()">Login</button>
+      </nav>
+      <button class="mobile-menu-btn" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <h3>About SmartCrop</h3>
+          <p class="section-subtitle">AI-powered recommendations to maximize your yield sustainably.</p>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+            <div class="feature-content">
+              <h4>Our Mission</h4>
+              <p class="muted">Empower farmers with actionable insights derived from soil and weather data.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+            <div class="feature-content">
+              <h4>What We Offer</h4>
+              <p class="muted">Personalized crop recommendations tailored to your field.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-content">
+              <h4>Who Uses SmartCrop</h4>
+              <p class="muted">Farmers, agronomists, and cooperatives across diverse climates and soil types.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-bottom">
+          <p>&copy; 2024 SmartCrop. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login to SmartCrop</h3>
+        <button class="close-modal" onclick="closeLogin()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" name="username" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="modal-footer">
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

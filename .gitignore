@@ -1,0 +1,12 @@
+target/
+data/
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+__pycache__/
+*.pyc
+*.log
+application-local.properties

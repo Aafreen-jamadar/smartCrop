@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crop Recommendation • SmartCrop</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:700">SmartCrop</div>
+          <div style="font-size:12px;color:var(--muted)">Optimize your farm yield</div>
+        </div>
+      </div>
+      <nav class="desktop-nav">
+        <a href="Home.html" class="nav-link">Home</a>
+        <a href="crop.html" class="nav-link active">Crop Recommendation</a>
+        <a href="fertilizer.html" class="nav-link">Fertilizer Guide</a>
+        <a href="about.html" class="nav-link">About</a>
+        <button class="btn-login" onclick="openLogin()">Login</button>
+      </nav>
+      <button class="mobile-menu-btn" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <section class="section recommendation-section">
+        <div class="section-header">
+          <h3>Get Your Crop Recommendation</h3>
+          <p class="section-subtitle">Enter your farm details for personalized suggestions</p>
+        </div>
+        <div class="recommendation-form">
+          <div class="form-container">
+            <!-- Same form reused from Home.html -->
+            <form id="cropForm" class="crop-form" data-auth-guard="true">
+              <div class="form-group">
+                <label for="location">Location</label>
+                <select id="location" name="location" required>
+                  <option value="">Select your district</option>
+                  <option value="solapur">Solapur</option>
+                  <option value="kolhapur">Kolhapur</option>
+                  <option value="sangli">Sangli</option>
+                  <option value="satara">Satara</option>
+                  <option value="thane">Thane</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nitrogen">Nitrogen (N)</label>
+                  <input type="number" id="nitrogen" name="nitrogen" min="0" max="200" placeholder="Enter N level" required>
+                  <div class="input-indicator">
+                    <span class="indicator-label">Low</span>
+                    <div class="indicator-bar">
+                      <div class="indicator-fill" data-value="nitrogen"></div>
+                    </div>
+                    <span class="indicator-label">High</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="phosphorus">Phosphorus (P)</label>
+                  <input type="number" id="phosphorus" name="phosphorus" min="0" max="200" placeholder="Enter P level" required>
+                  <div class="input-indicator">
+                    <span class="indicator-label">Low</span>
+                    <div class="indicator-bar">
+                      <div class="indicator-fill" data-value="phosphorus"></div>
+                    </div>
+                    <span class="indicator-label">High</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="potassium">Potassium (K)</label>
+                  <input type="number" id="potassium" name="potassium" min="0" max="200" placeholder="Enter K level" required>
+                  <div class="input-indicator">
+                    <span class="indicator-label">Low</span>
+                    <div class="indicator-bar">
+                      <div class="indicator-fill" data-value="potassium"></div>
+                    </div>
+                    <span class="indicator-label">High</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ph">Soil pH</label>
+                  <input type="number" id="ph" name="ph" min="0" max="14" step="0.1" placeholder="Enter pH level" required>
+                  <div class="ph-indicator">
+                    <span class="ph-label">Acidic</span>
+                    <div class="ph-bar">
+                      <div class="ph-fill" data-value="ph"></div>
+                    </div>
+                    <span class="ph-label">Alkaline</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="temperature">Temperature (°C)</label>
+                  <input type="number" id="temperature" name="temperature" min="-50" max="50" step="0.1" placeholder="Enter temperature" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="humidity">Humidity (%)</label>
+                  <input type="number" id="humidity" name="humidity" min="0" max="100" step="0.1" placeholder="Enter humidity" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="rainfall">Expected Rainfall (mm)</label>
+                <input type="number" id="rainfall" name="rainfall" min="0" max="3000" step="0.1" placeholder="Enter expected rainfall" required>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-magic"></i>
+                Get Recommendation
+              </button>
+            </form>
+          </div>
+
+          <div class="results-container" id="resultsContainer" style="display: none;">
+            <div class="results-header">
+              <h4>Your Crop Recommendations</h4>
+              <button class="close-results" onclick="closeResults()">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="results-content" id="resultsContent"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-bottom">
+          <p>&copy; 2024 SmartCrop. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login to SmartCrop</h3>
+        <button class="close-modal" onclick="closeLogin()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" name="username" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="modal-footer">
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

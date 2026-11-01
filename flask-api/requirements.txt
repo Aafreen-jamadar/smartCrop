@@ -1,0 +1,6 @@
+flask
+gunicorn
+joblib
+numpy>=2.0
+# must match the version the .pkl files were saved with
+scikit-learn==1.6.1

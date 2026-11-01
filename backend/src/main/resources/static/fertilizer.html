@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fertilizer Guide • SmartCrop</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:700">SmartCrop</div>
+          <div style="font-size:12px;color:var(--muted)">Optimize your farm yield</div>
+        </div>
+      </div>
+      <nav class="desktop-nav">
+        <a href="Home.html" class="nav-link">Home</a>
+        <a href="crop.html" class="nav-link">Crop Recommendation</a>
+        <a href="fertilizer.html" class="nav-link active">Fertilizer Guide</a>
+        <a href="about.html" class="nav-link">About</a>
+        <button class="btn-login" onclick="openLogin()">Login</button>
+      </nav>
+      <button class="mobile-menu-btn" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <section class="section fertilizer-section">
+        <div class="section-header">
+          <h3>Fertilizer Guide</h3>
+          <p class="section-subtitle">Optimize your soil nutrition with our fertilizer recommendations</p>
+        </div>
+        <div class="fertilizer-grid">
+          <div class="fertilizer-card" data-nutrient="nitrogen">
+            <div class="fertilizer-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h4>Nitrogen (N)</h4>
+            <p>Essential for plant growth and green foliage</p>
+            <div class="fertilizer-sources">
+              <span class="source">Urea</span>
+              <span class="source">Ammonium Nitrate</span>
+              <span class="source">Organic Compost</span>
+            </div>
+            <button class="fertilizer-btn" onclick="showFertilizerDetails('nitrogen')">Learn More</button>
+          </div>
+
+          <div class="fertilizer-card" data-nutrient="phosphorus">
+            <div class="fertilizer-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h4>Phosphorus (P)</h4>
+            <p>Promotes root development and flowering</p>
+            <div class="fertilizer-sources">
+              <span class="source">DAP</span>
+              <span class="source">Superphosphate</span>
+              <span class="source">Bone Meal</span>
+            </div>
+            <button class="fertilizer-btn" onclick="showFertilizerDetails('phosphorus')">Learn More</button>
+          </div>
+
+          <div class="fertilizer-card" data-nutrient="potassium">
+            <div class="fertilizer-icon">
+              <i class="fas fa-apple-alt"></i>
+            </div>
+            <h4>Potassium (K)</h4>
+            <p>Improves fruit quality and disease resistance</p>
+            <div class="fertilizer-sources">
+              <span class="source">MOP</span>
+              <span class="source">SOP</span>
+              <span class="source">Wood Ash</span>
+            </div>
+            <button class="fertilizer-btn" onclick="showFertilizerDetails('potassium')">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-bottom">
+          <p>&copy; 2024 SmartCrop. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login to SmartCrop</h3>
+        <button class="close-modal" onclick="closeLogin()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" name="username" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="modal-footer">
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
